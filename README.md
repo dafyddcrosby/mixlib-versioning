@@ -2,8 +2,6 @@
 [![Build status](https://badge.buildkite.com/7aa0e56c4ab881afc6025119868c6828dc2f11a907465b9c51.svg?branch=master)](https://buildkite.com/chef-oss/chef-mixlib-versioning-master-verify)
 [![Gem Version](https://badge.fury.io/rb/mixlib-versioning.svg)](https://badge.fury.io/rb/mixlib-versioning)
 
-**Umbrella Project**: [Chef Foundation](https://github.com/chef/chef-oss-practices/blob/master/projects/chef-foundation.md)
-
 Versioning is hard! `mixlib-versioning` is a general Ruby library that allows you to parse, compare and manipulate version numbers in multiple formats. Currently the following version string formats are supported:
 
 ## SemVer 2.0.0

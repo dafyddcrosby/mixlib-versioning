@@ -18,6 +18,6 @@
 
 module Mixlib
   class Versioning
-    VERSION = "1.2.20".freeze
+    VERSION = "1.2.21".freeze
   end
 end

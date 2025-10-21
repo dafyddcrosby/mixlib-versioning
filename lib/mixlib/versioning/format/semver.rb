@@ -42,11 +42,15 @@ module Mixlib
       # @author Seth Chisamore (<schisamo@chef.io>)
       # @author Christopher Maier (<cm@chef.io>)
       class SemVer < Format
-        SEMVER_REGEX = /^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][a-zA-Z0-9-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][a-zA-Z0-9-]*))*))?(?:\+([0-9A-Za-z-]+(?:\.[0-9A-Za-z-]+)*))?$/.freeze
+        SEMVER_REGEX = /^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][a-zA-Z0-9-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][a-zA-Z0-9-]*))*))?(?:\+([0-9A-Za-z-]+(?:\.[0-9A-Za-z-]+)*))?$/
 
         # @see Format#parse
         def parse(version_string)
-          match = version_string.match(SEMVER_REGEX) rescue nil
+          match = begin
+                    version_string.match(SEMVER_REGEX)
+                  rescue
+                    nil
+                  end
 
           unless match
             raise Mixlib::Versioning::ParseError, "'#{version_string}' is not a valid #{self.class} version string!"

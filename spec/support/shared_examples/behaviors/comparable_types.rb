@@ -31,7 +31,7 @@ shared_examples "comparable_types" do |version_matrix|
     version_matrix.each_slice(2) do |a, b|
       it "confirms that #{a} less-than or equal to #{b}" do
         expect(described_class.new(a) <= b[:class].new(b[:value])).to be true
-        expect(b[:class].new("#{b[:value]}") <= described_class.new(a)).to be false
+        expect(b[:class].new(b[:value].to_s) <= described_class.new(a)).to be false
       end
     end
   end

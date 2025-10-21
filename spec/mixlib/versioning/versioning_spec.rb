@@ -205,12 +205,6 @@ describe Mixlib::Versioning do
         build_versions: nil,
         prerelease_and_build_versions: "11.0.2-alpha.0+2013041116332",
       },
-      "11.0.2" => { # rubocop: disable Lint/DuplicatedKey
-        releases_only: "11.0.2",
-        prerelease_versions: "11.0.2-alpha.0",
-        build_versions: nil,
-        prerelease_and_build_versions: "11.0.2-alpha.0+2013041116332",
-      },
       "11.0.2-alpha.0" => {
         releases_only: "11.0.2-alpha.0",
         prerelease_versions: "11.0.2-alpha.0",

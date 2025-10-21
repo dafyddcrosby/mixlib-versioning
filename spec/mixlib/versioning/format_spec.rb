@@ -37,7 +37,7 @@ describe Mixlib::Versioning::Format do
       "rubygems",
       Mixlib::Versioning::Format::Rubygems,
     ].each do |format_type|
-      context 'format_type is a: #{format_type.class}' do
+      context "format_type is a: #{format_type.class}" do
         let(:format_type) { format_type }
         it "returns the correct format class" do
           expect(subject.for(format_type)).to eq Mixlib::Versioning::Format::Rubygems
@@ -51,7 +51,7 @@ describe Mixlib::Versioning::Format do
         "poop",
         Mixlib::Versioning,
       ].each do |invalid_format_type|
-        context 'format_type is a: #{invalid_format_type.class}' do
+        context "format_type is a: #{invalid_format_type.class}" do
           it "raises a Mixlib::Versioning::UnknownFormatError" do
             expect { subject.for(invalid_format_type) }.to raise_error(Mixlib::Versioning::UnknownFormatError)
           end # it
@@ -75,7 +75,7 @@ describe Mixlib::Versioning do
     end
 
     formats.each do |format|
-      context "#{format}" do
+      context format.to_s do
         versions.each_slice(2) do |a, b|
           it "parsed value #{a} is equal to #{format} parsed value #{b}" do
             expect(described_class.parse(a) == format.new(b)).to be true

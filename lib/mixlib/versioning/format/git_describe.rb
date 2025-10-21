@@ -44,13 +44,17 @@ module Mixlib
       # @author Seth Chisamore (<schisamo@chef.io>)
       # @author Christopher Maier (<cm@chef.io>)
       class GitDescribe < Format
-        GIT_DESCRIBE_REGEX = /^(\d+)\.(\d+)\.(\d+)(?:\-|\.)?(.+)?\-(\d+)\-g([a-f0-9]{7,40})(?:\-)?(\d+)?$/.freeze
+        GIT_DESCRIBE_REGEX = /^(\d+)\.(\d+)\.(\d+)(?:\-|\.)?(.+)?\-(\d+)\-g([a-f0-9]{7,40})(?:\-)?(\d+)?$/
 
         attr_reader :commits_since, :commit_sha
 
         # @see Format#parse
         def parse(version_string)
-          match = version_string.match(GIT_DESCRIBE_REGEX) rescue nil
+          match = begin
+                    version_string.match(GIT_DESCRIBE_REGEX)
+                  rescue
+                    nil
+                  end
 
           unless match
             raise Mixlib::Versioning::ParseError, "'#{version_string}' is not a valid #{self.class} version string!"

@@ -40,10 +40,14 @@ module Mixlib
       # @author Ryan Hass (<rhass@chef.io>)
       class PartialSemVer < Format
         #  http://rubular.com/r/NmRSN8vCie
-        PARTIAL_REGEX = /^(\d+)\.?(?:(\d*))$/.freeze
+        PARTIAL_REGEX = /^(\d+)\.?(?:(\d*))$/
         # @see Format#parse
         def parse(version_string)
-          match = version_string.match(PARTIAL_REGEX) rescue nil
+          match = begin
+                    version_string.match(PARTIAL_REGEX)
+                  rescue
+                    nil
+                  end
 
           unless match
             raise Mixlib::Versioning::ParseError, "'#{version_string}' is not a valid #{self.class} version string!"

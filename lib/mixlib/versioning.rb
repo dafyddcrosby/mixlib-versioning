@@ -66,11 +66,9 @@ module Mixlib
         # Attempt to parse from the most specific formats first.
         parsed_version = nil
         formats.each do |version|
-
           break parsed_version = version.new(version_string)
         rescue Mixlib::Versioning::ParseError
           next
-
         end
         parsed_version
       end
@@ -129,10 +127,9 @@ module Mixlib
     #   build version specifier will be filtered out.
     #
     def self.find_target_version(all_versions,
-                                 filter_version = nil,
-                                 use_prerelease_versions = false,
-                                 use_build_versions = false)
-
+      filter_version = nil,
+      use_prerelease_versions = false,
+      use_build_versions = false)
       # attempt to parse a `Mixlib::Versioning::Format` instance if we were
       # passed a string
       unless filter_version.nil? ||

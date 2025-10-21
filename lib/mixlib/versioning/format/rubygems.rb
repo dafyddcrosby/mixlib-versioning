@@ -42,11 +42,15 @@ module Mixlib
       # @author Seth Chisamore (<schisamo@chef.io>)
       # @author Christopher Maier (<cm@chef.io>)
       class Rubygems < Format
-        RUBYGEMS_REGEX = /^(\d+)\.(\d+)\.(\d+)(?:\.([[:alnum:]]+(?:\.[[:alnum:]]+)?))?(?:\-(\d+))?$/.freeze
+        RUBYGEMS_REGEX = /^(\d+)\.(\d+)\.(\d+)(?:\.([[:alnum:]]+(?:\.[[:alnum:]]+)?))?(?:\-(\d+))?$/
 
         # @see Format#parse
         def parse(version_string)
-          match = version_string.match(RUBYGEMS_REGEX) rescue nil
+          match = begin
+                    version_string.match(RUBYGEMS_REGEX)
+                  rescue
+                    nil
+                  end
 
           unless match
             raise Mixlib::Versioning::ParseError, "'#{version_string}' is not a valid #{self.class} version string!"

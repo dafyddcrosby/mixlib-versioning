@@ -1,16 +1,17 @@
 # Mixlib::Versioning Changes
 
-<!-- latest_release 1.2.21 -->
-## [v1.2.21](https://github.com/chef/mixlib-versioning/tree/v1.2.21) (2025-10-21)
+<!-- latest_release 1.2.22 -->
+## [v1.2.22](https://github.com/chef/mixlib-versioning/tree/v1.2.22) (2025-10-23)
 
 #### Merged Pull Requests
-- Drop 3.0 and add 3.4 [#62](https://github.com/chef/mixlib-versioning/pull/62) ([jaymzh](https://github.com/jaymzh))
+- CHEF-26032 - Replace CODE_OF_CONDUCT.md file [#61](https://github.com/chef/mixlib-versioning/pull/61) ([nandanhegde73](https://github.com/nandanhegde73))
 <!-- latest_release -->
 
 <!-- release_rollup since=1.2.12 -->
 ### Changes not yet released to rubygems.org
 
 #### Merged Pull Requests
+- CHEF-26032 - Replace CODE_OF_CONDUCT.md file [#61](https://github.com/chef/mixlib-versioning/pull/61) ([nandanhegde73](https://github.com/nandanhegde73)) <!-- 1.2.22 -->
 - Drop 3.0 and add 3.4 [#62](https://github.com/chef/mixlib-versioning/pull/62) ([jaymzh](https://github.com/jaymzh)) <!-- 1.2.21 -->
 - add myself to codeowners [#58](https://github.com/chef/mixlib-versioning/pull/58) ([jaymzh](https://github.com/jaymzh)) <!-- 1.2.20 -->
 - Migrate from Chefstyle to Cookstyle [#56](https://github.com/chef/mixlib-versioning/pull/56) ([dafyddcrosby](https://github.com/dafyddcrosby)) <!-- 1.2.19 -->
